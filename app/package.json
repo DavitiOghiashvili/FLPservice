@@ -1,0 +1,11 @@
+{
+  "name": "flp-container",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "fiori run --open flpSandbox.html"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.1.1",
+    "@sap/ux-ui5-tooling": "^1.11.3"
+  }
+}
