@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "http://localhost:4004/root/",
+        "uri": "/root/",
         "type": "OData",
         "settings": {
           "annotations": [
@@ -65,6 +65,19 @@
   },
   "sap.ui5": {
     "flexEnabled": true,
+    "extends": {
+    "extensions": {
+      "sap.ui.viewExtensions": {
+        "sap.fe.templates.ListReport.view.ListReport": {
+          "AfterListReportHeader": {
+            "className": "sap.ui.core.Fragment",
+            "fragmentName": "fiorielementsapp.ext.fragment.NavigateButton",
+            "type": "XML"
+          }
+        }
+      }
+    }
+  },
     "dependencies": {
       "minUI5Version": "1.136.2",
       "libs": {
