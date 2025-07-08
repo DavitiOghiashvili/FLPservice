@@ -38,6 +38,12 @@
             "additionalParameters": "allowed"
           }
         }
+      },
+      "outbounds": {
+        "ExternalNavigation": {
+          "semanticObject": "FreestyleApp",
+          "action": "display"
+        }
       }
     }
   },
