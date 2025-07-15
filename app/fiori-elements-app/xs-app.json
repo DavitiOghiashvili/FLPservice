@@ -3,9 +3,9 @@
   "authenticationMethod": "none",
   "routes": [
     {
-      "source": "^(.*)$",
+      "source": "^/root/(.*)$",
       "target": "$1",
-      "service": "html5-apps-repo-rt",
+      "destination": "fiorielementsapp-destination-service",
       "authenticationType": "none"
     }
   ]
