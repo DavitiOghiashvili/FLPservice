@@ -1,0 +1,162 @@
+<mvc:View controllerName="freestylesapui5app.controller.ListReport"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:plugins="sap.m.plugins">
+    <f:DynamicPage>
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>appTitle}" />
+                </f:heading>
+                <f:expandedContent>
+                    <Label id="idNoFiltersActiveExpandedLabel"
+                        text="{i18n>noFiltersActive}" />
+                </f:expandedContent>
+                <f:snappedContent>
+                    <Label id="idNoFiltersActiveSnappedLabel"
+                        text="{i18n>noFiltersActive}" />
+                </f:snappedContent>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader>
+                <fb:FilterBar id="idFilterBar"
+                    search=".onFilterBarSearch"
+                    filterChange=".onFilterBarFilterChange"
+                    afterVariantLoad=".onFilterBarAfterVariantLoad"
+                    basicSearch="true">
+                    <fb:filterGroupItems>
+                        <fb:FilterGroupItem name="Search Field"
+                            label="{i18n>searchLabel}"
+                            groupName="Default">
+                            <fb:control>
+                                <SearchField search=".onFilterBarSearch"
+                                    value="{uiModel>/searchQuery}"
+                                    placeholder="{i18n>searchPlaceholder}" />
+                            </fb:control>
+                        </fb:FilterGroupItem>
+                        <fb:FilterGroupItem name="Price_currency"
+                            label="{i18n>priceCurrencyLabel}"
+                            groupName="Default">
+                            <fb:control>
+                                <MultiComboBox name="Price_currency"
+                                    selectionChange=".onMultiComboBoxSelectionChange"
+                                    items="{uiModel>/currencies}">
+                                    <core:Item key="{uiModel>key}"
+                                        text="{uiModel>text}" />
+                                </MultiComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+                        <fb:FilterGroupItem name="Rating"
+                            label="{i18n>ratingLabel}"
+                            groupName="Default">
+                            <fb:control>
+                                <MultiComboBox name="Rating"
+                                    selectionChange=".onMultiComboBoxSelectionChange"
+                                    items="{uiModel>/ratings}">
+                                    <core:Item key="{uiModel>key}"
+                                        text="{uiModel>text}" />
+                                </MultiComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+                        <fb:FilterGroupItem name="Status"
+                            label="{i18n>statusLabel}"
+                            groupName="Default">
+                            <fb:control>
+                                <MultiComboBox name="Status"
+                                    selectedKeys="{uiModel>/selectedStatuses}"
+                                    items="{uiModel>/statuses}">
+                                    <core:Item key="{uiModel>key}"
+                                        text="{uiModel>text}" />
+                                </MultiComboBox>
+                            </fb:control>
+                        </fb:FilterGroupItem>
+                    </fb:filterGroupItems>
+                </fb:FilterBar>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <Table id="idProductsTable"
+                autoPopinMode="true"
+                mode="MultiSelect"
+                selectionChange=".onProductsTableSelectionChange"
+                items="{/Products}">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="{ 
+                                parts: [
+                                'uiModel>/productsCount'
+                                ], 
+                                formatter: '.formatter.formatProductCountTitle' 
+                            }" />
+                        <ToolbarSpacer />
+                        <Button text="{i18n>manageProducts}"
+                            press=".onNavigateToProducts" />
+                        <Button text="{i18n>createBtn}"
+                            press=".onCreateProductDialogPress" />
+                        <Button text="{i18n>deleteBtn}"
+                            id="idProductDeleteButton"
+                            press=".onDeleteButtonPress"
+                            enabled="false" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <dependents>
+                    <plugins:ColumnResizer />
+                </dependents>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>productNameColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>priceColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>currencyColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>specsColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>supplierInfoColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>madeInColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>prodCompanyColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>ratingColumn}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>statusColumn}" />
+                    </Column>
+                </columns>
+
+                <ColumnListItem type="Navigation"
+                    press=".onColumnListItemPress">
+                    <Text text="{Name}"
+                        wrapping="false" />
+                    <Text text="{Price_amount}" />
+                    <Text text="{Price_currency}" />
+                    <Text text="{Specs}"
+                        wrapping="false" />
+                    <Text text="{SupplierInfo}"
+                        wrapping="false" />
+                    <Text text="{MadeIn}" />
+                    <Text text="{ProductionCompanyName}" />
+                    <RatingIndicator value="{Rating}"
+                        displayOnly="true"
+                        iconSize="1rem" />
+                    <ObjectStatus text="{ path: 'Status', formatter: '.formatter.productStatusText' }"
+                        state="{ path: 'Status', formatter: '.formatter.productStatusState' }" />
+                </ColumnListItem>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>
