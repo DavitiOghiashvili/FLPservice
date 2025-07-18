@@ -101,7 +101,7 @@ sap.ui.define(
         sap.ushell.Container.getServiceAsync("CrossApplicationNavigation").then(function (navService) {
           navService.toExternal({
             target: {
-              shellHash: "fiorielementsapp-display&/Products(ID=1d4c61bc-3949-4536-a860-a5580ff054d0,IsActiveEntity=true)"
+              shellHash: "fiorielementsapp-display&/Products(ID=1d4c61bc-3949-4536-a860-a5580ff054d0,IsActiveEntity=false)"
             }
           });
         });
