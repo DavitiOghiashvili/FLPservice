@@ -4,7 +4,8 @@
     xmlns="sap.m"
     xmlns:f="sap.f"
     xmlns:fb="sap.ui.comp.filterbar"
-    xmlns:plugins="sap.m.plugins">
+    xmlns:plugins="sap.m.plugins"
+    xmlns:reuse="reuse.library">
     <f:DynamicPage>
         <f:title>
             <f:DynamicPageTitle>
@@ -95,6 +96,7 @@
                                 formatter: '.formatter.formatProductCountTitle' 
                             }" />
                         <ToolbarSpacer />
+                        <reuse:ReuseButton text="Reuse Button"/>
                         <Button text="{i18n>manageProducts}"
                             press=".onNavigateToProducts" />
                         <Button text="{i18n>createBtn}"

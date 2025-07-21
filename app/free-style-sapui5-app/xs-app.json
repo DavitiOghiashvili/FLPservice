@@ -15,6 +15,11 @@
       "destination": "ui5"
     },
     {
+      "source": "^/resources/reuse/library/(.*)$",
+      "target": "/resources/reuse/library/$1",
+      "destination": "html5-apps-repo"
+    },
+    {
       "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",
