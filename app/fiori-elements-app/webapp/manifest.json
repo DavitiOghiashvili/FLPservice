@@ -17,26 +17,29 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "http://localhost:4004/root/",
+        "uri": "backend/root/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotations"
-          ],
           "odataVersion": "4.0"
         }
       }
     },
     "crossNavigation": {
       "inbounds": {
-        "Products-display": {
-          "semanticObject": "Products",
+        "fiorielementsapp-display": {
+          "semanticObject": "fiorielementsapp",
           "action": "display",
           "title": "{{Products-display.flpTitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
           }
+        }
+      },
+      "outbounds": {
+        "ExternalNavigation": {
+          "semanticObject": "freestylesapui5app",
+          "action": "display"
         }
       }
     }
@@ -155,6 +158,15 @@
                       "header": "{i18n>customDateColumn}",
                       "template": "fiorielementsapp.ext.fragment.CustomDateColumn",
                       "availability": "Adaptation"
+                    }
+                  },
+                  "actions": {
+                    "CustomNavigation": {
+                      "press": "fiorielementsapp.ext.controller.CustomNavigation.NavigateToFreestyleApp",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Go to Freestyle App"
                     }
                   }
                 },

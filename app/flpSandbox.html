@@ -1,124 +1,74 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{appTitle}}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{appTitle}}</title>
 
-    <script type="text/javascript">
-        window["sap-ushell-config"] = {
-            defaultRenderer: "fiori2",
-            bootstrapPlugins: {
-                "RuntimeAuthoringPlugin": {
-                    component: "sap.ushell.plugins.rta",
-                    config: {
-                        validateAppVersion: false
-                    }
-                }
-            },
-            renderers: {
-                fiori2: {
-                    componentData: {
-                        config: {
-                            search: "hidden",
-                            enableSearch: false
-                        }
-                    }
-                }
-            },
-            applications: {
-                "fiorielementsapp-tile": {
-                    title: "Manage products",
-                    description: "An SAP Fiori application.",
-                    additionalInformation: "SAPUI5.Component=fiorielementsapp",
-                    applicationType: "URL",
-                    url: "./fiori-elements-app/webapp"
-                },
-                "freestyleui5app-tile": {
-                    title: "Manage stores",
-                    description: "An SAP Fiori application.",
-                    additionalInformation: "SAPUI5.Component=freestylesapui5app",
-                    applicationType: "URL",
-                    url: "./free-style-sapui5-app/webapp"
-                }
-            },
-            services: {
-                "LaunchPage": {
-                    adapter: {
-                        config: {
-                            groups: [
-                                {
-                                    id: "group1",
-                                    title: "Product Management",
-                                    tiles: [
-                                        {
-                                            id: "tile1",
-                                            title: "Manage products",
-                                            size: "1x1",
-                                            tileType: "sap.ushell.ui.tile.StaticTile",
-                                            properties: {
-                                                title: "Manage products",
-                                                targetURL: "#fiorielementsapp-tile"
-                                            }
-                                        },
-                                        {
-                                            id: "tile2",
-                                            title: "Manage stores",
-                                            size: "1x1",
-                                            tileType: "sap.ushell.ui.tile.StaticTile",
-                                            properties: {
-                                                title: "Manage stores",
-                                                targetURL: "#freestyleui5app-tile"
-                                            }
-                                        }
-                                    ]
-                                },
-                                {
-                                    id: "group2",
-                                    title: "Store Management",
-                                    tiles: [
-                                        {
-                                            id: "tile3",
-                                            title: "Manage stores",
-                                            size: "1x1",
-                                            tileType: "sap.ushell.ui.tile.StaticTile",
-                                            properties: {
-                                                title: "Manage stores",
-                                                targetURL: "#freestyleui5app-tile"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    }
-                }
+  <script type="text/javascript">
+    window["sap-ushell-config"] = {
+      defaultRenderer: "fiori2",
+      bootstrapPlugins: {
+        "RuntimeAuthoringPlugin": {
+          component: "sap.ushell.plugins.rta",
+          config: {
+            validateAppVersion: false
+          }
+        }
+      },
+      renderers: {
+        fiori2: {
+          componentData: {
+            config: {
+              search: "hidden",
+              enableSearch: false
             }
-        };
+          }
+        }
+      },
+      applications: {
+        "fiorielementsapp-display": {
+          title: "Fiori App",
+          description: "Fiori App",
+          additionalInformation: "SAPUI5.Component=fiorielementsapp",
+          applicationType: "URL",
+          url: "./fiori-elements-app/webapp"
+        },
+        "freestylesapui5app-display": {
+          title: "Freestyle App",
+          description: "Freestyle App",
+          additionalInformation: "SAPUI5.Component=freestylesapui5app",
+          applicationType: "URL",
+          url: "./free-style-sapui5-app/webapp"
+        }
+      }
+    };
+  </script>
+
+  <script src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js"
+    id="sap-ushell-bootstrap">
     </script>
 
-    <script src="https://sapui5.hana.ondemand.com/1.136.2/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
-    <script id="sap-ui-bootstrap"
-        src="https://sapui5.hana.ondemand.com/1.136.2/resources/sap-ui-core.js"
-        data-sap-ui-libs="sap.m, sap.ui.core, sap.fe.templates"
-        data-sap-ui-async="true"
-        data-sap-ui-preload="async"
-        data-sap-ui-theme="sap_horizon"
-        data-sap-ui-compatVersion="edge"
-        data-sap-ui-language="en"
-        data-sap-ui-resourceroots='{"fiorielementsapp": "./fiori-elements-app/webapp", "freestylesapui5app": "./free-style-sapui5-app/webapp"}'
-        data-sap-ui-frameOptions="allow"
-        data-sap-ui-flexibilityServices='[{"connector": "LocalStorageConnector"}]'>
+  <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+    data-sap-ui-libs="sap.m,sap.ushell,sap.fe.templates" data-sap-ui-async="true" data-sap-ui-preload="async"
+    data-sap-ui-theme="sap_horizon" data-sap-ui-compatVersion="edge" data-sap-ui-language="en"
+    data-sap-ui-frameOptions="allow" data-sap-ui-resourceroots='{
+      "fiorielementsapp": "./fiori-elements-app/webapp",
+      "freestylesapui5app": "./free-style-sapui5-app/webapp"
+    }' data-sap-ui-flexibilityServices='[{"connector": "LocalStorageConnector"}]'>
     </script>
-    <script>
-        sap.ui.getCore().attachInit(function () {
-            sap.ushell.Container.createRenderer().placeAt("content");
-        });
-    </script>
+
+  <script>
+    sap.ui.getCore().attachInit(function () {
+      sap.ushell.Container.createRenderer(true).then(function (renderer) {
+        renderer.placeAt("content");
+      });
+    });
+  </script>
 </head>
 
-<body class="sapUiBody" id="content">
-</body>
+<body class="sapUiBody" id="content"></body>
 
 </html>
