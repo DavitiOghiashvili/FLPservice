@@ -71,9 +71,6 @@
         "sap.fe.templates": {}
       }
     },
-    "resourceRoots": {
-      "reuse.library": "../../reuse-library/src/reuse/library/"
-    },
     "contentDensities": {
       "compact": true,
       "cozy": true
@@ -100,11 +97,7 @@
       }
     },
     "resources": {
-      "css": [
-        {
-          "uri": "../../reuse-library/src/reuse/library/themes/base/library.source.less"
-        }
-      ]
+      "css": []
     },
     "routing": {
       "config": {},

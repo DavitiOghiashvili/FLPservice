@@ -65,13 +65,9 @@
     "dependencies": {
       "minUI5Version": "1.136.1",
       "libs": {
-        "reuse.library": {},
         "sap.m": {},
         "sap.ui.core": {}
       }
-    },
-    "resourceRoots": {
-      "reuse.library": "../../reuse-library/src/reuse/library/"
     },
     "contentDensities": {
       "compact": true,
@@ -95,9 +91,6 @@
       "css": [
         {
           "uri": "css/style.css"
-        },
-        {
-          "uri": "../../reuse-library/src/reuse/library/themes/base/library.source.less"
         }
       ]
     },
