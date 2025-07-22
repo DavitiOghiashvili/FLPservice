@@ -96,7 +96,7 @@
                                 formatter: '.formatter.formatProductCountTitle' 
                             }" />
                         <ToolbarSpacer />
-                        <reuse:ReuseButton text="Reuse Button"/>
+                        <reuse:ReuseButton text="My Reuse Button" class="reuse-button__color"/>
                         <Button text="{i18n>manageProducts}"
                             press=".onNavigateToProducts" />
                         <Button text="{i18n>createBtn}"

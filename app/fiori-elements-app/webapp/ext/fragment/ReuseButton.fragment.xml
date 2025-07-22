@@ -1,6 +1,6 @@
-<core:FragmentDefinition
-  xmlns:core="sap.ui.core"
-  xmlns:reuse="reuse.library"
-  xmlns="sap.m">
-  <reuse:ReuseButton id="reuseBtn" text="Reuse Button"/>
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+  xmlns:reuse="reuse.library">
+  <reuse:ReuseButton text="My Reuse Action"
+    press="onReuseButtonPress"
+    class="reuse-button__color" />
 </core:FragmentDefinition>

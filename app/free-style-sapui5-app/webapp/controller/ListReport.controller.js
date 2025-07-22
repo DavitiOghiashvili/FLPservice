@@ -9,7 +9,8 @@ sap.ui.define(
     '../utils/Constants',
     'sap/ui/core/BusyIndicator',
     'sap/m/MessageToast',
-    'sap/ui/core/Messaging'
+    'sap/ui/core/Messaging',
+    "reuse/library/ReuseButton"
   ],
   (
     BaseController,
@@ -21,7 +22,8 @@ sap.ui.define(
     Constants,
     BusyIndicator,
     MessageToast,
-    Messaging
+    Messaging,
+    ReuseButton
   ) => {
     'use strict';
     return BaseController.extend('freestylesapui5app.controller.ListReport', {

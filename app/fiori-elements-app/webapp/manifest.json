@@ -71,6 +71,9 @@
         "sap.fe.templates": {}
       }
     },
+    "resourceRoots": {
+      "reuse.library": "../../reuse-library/src/reuse/library/"
+    },
     "contentDensities": {
       "compact": true,
       "cozy": true
@@ -97,7 +100,11 @@
       }
     },
     "resources": {
-      "css": []
+      "css": [
+        {
+          "uri": "../../reuse-library/src/reuse/library/themes/base/library.source.less"
+        }
+      ]
     },
     "routing": {
       "config": {},
@@ -168,6 +175,14 @@
                       "enabled": true,
                       "requiresSelection": false,
                       "text": "Go to Freestyle App"
+                    },
+                    "ReuseButtonAction": {
+                      "template": "fiorielementsapp.ext.fragment.ReuseButton",
+                      "press": "fiorielementsapp.ext.controller.ReuseButton.onReuseButtonClick",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Reuse Button"
                     }
                   }
                 },
