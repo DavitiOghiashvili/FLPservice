@@ -17,26 +17,29 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "http://localhost:4004/root/",
+        "uri": "backend/root/",
         "type": "OData",
         "settings": {
-          "annotations": [
-            "annotations"
-          ],
           "odataVersion": "4.0"
         }
       }
     },
     "crossNavigation": {
       "inbounds": {
-        "Products-display": {
-          "semanticObject": "Products",
+        "fiorielementsapp-display": {
+          "semanticObject": "fiorielementsapp",
           "action": "display",
           "title": "{{Products-display.flpTitle}}",
           "signature": {
             "parameters": {},
             "additionalParameters": "allowed"
           }
+        }
+      },
+      "outbounds": {
+        "ExternalNavigation": {
+          "semanticObject": "freestylesapui5app",
+          "action": "display"
         }
       }
     }
@@ -62,6 +65,7 @@
     "dependencies": {
       "minUI5Version": "1.136.2",
       "libs": {
+        "reuse.library": {},
         "sap.m": {},
         "sap.ui.core": {},
         "sap.fe.templates": {}
@@ -156,6 +160,23 @@
                       "template": "fiorielementsapp.ext.fragment.CustomDateColumn",
                       "availability": "Adaptation"
                     }
+                  },
+                  "actions": {
+                    "CustomNavigation": {
+                      "press": "fiorielementsapp.ext.controller.CustomNavigation.NavigateToFreestyleApp",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Go to Freestyle App"
+                    },
+                    "ReuseButtonAction": {
+                      "template": "fiorielementsapp.ext.fragment.ReuseButton",
+                      "press": "fiorielementsapp.ext.controller.ReuseButton.onReuseButtonClick",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Reuse Button"
+                    }
                   }
                 },
                 "@com.sap.vocabularies.UI.v1.SelectionFields": {
@@ -188,6 +209,10 @@
                     "CustomStoreSection": {
                       "title": "{i18n>myCustomSection}",
                       "template": "fiorielementsapp.ext.fragment.CustomStoreSection"
+                    },
+                    "ReuseSection": {
+                      "title": "Reuse Section",
+                      "template": "fiorielementsapp.ext.fragment.ReuseButton"
                     }
                   }
                 }
